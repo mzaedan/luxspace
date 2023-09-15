@@ -12,14 +12,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
     <script src="https://cdn.tailwindcss.com"></script>
 
-
-    <!-- Styles -->
-    @livewireStyles
-
     <!-- Scripts -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
-
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
     <style>
@@ -112,18 +106,13 @@
         }
     </style>
 
-    <!-- Scripts -->
-
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    @livewireStyles
 
     <!--- Tambahkan setelah app.js --->
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-
-
-
 
 </head>
 
@@ -134,13 +123,13 @@
         @livewire('navigation-menu')
 
         <!-- Page Heading -->
-        @if (isset($header))
+
         <header class="bg-white shadow">
             <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                 {{ $header }}
             </div>
         </header>
-        @endif
+
 
         <!-- Page Content -->
         <main>
