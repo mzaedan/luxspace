@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-
+            Product &raquo; {{ $product->name }} &raquo; Gallery
         </h2>
     </x-slot>
 
@@ -18,12 +18,12 @@
                         width: '5%'
                     },
                     {
-                        data: 'name',
-                        name: 'name'
+                        data: 'url',
+                        name: 'url'
                     },
                     {
-                        data: 'price',
-                        name: 'price'
+                        data: 'is_featured',
+                        name: 'is_featured'
                     },
                     {
                         data: 'action',
