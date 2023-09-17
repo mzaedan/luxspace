@@ -32,13 +32,17 @@ class ProductGalleryController extends Controller
                         ' . method_field('delete') . csrf_field() . '
                     </form>';
                 })
+                // ->editColumn('url', function ($item) {
+                //     return '<img style="max-width: 150px;" src="' . Storage::url($item->url) . '"/>';
+                // })
                 ->editColumn('url', function ($item) {
-                    return '<img style="max-width: 150px;" src="' . asset('storage/' . $item->url) . '"/>';
+                    $url = str_replace('public/', '', $item->url);
+                    return '<img style="max-width: 150px;" src="' . asset('storage/' . $url) . '"/>';
                 })
                 ->editColumn('is_featured', function ($item) {
                     return $item->is_featured ? 'Yes' : 'No';
                 })
-                ->rawColumns(['action', ''])
+                ->rawColumns(['action', 'url'])
                 ->make();
         }
         return view('pages.dashboard.gallery.index', compact('product'));
@@ -66,7 +70,7 @@ class ProductGalleryController extends Controller
 
         if ($request->hasFile('files')) {
             foreach ($files as $file) {
-                $path = $file->store('public/public/gallery');
+                $path = $file->store('public/gallery');
 
                 ProductGallery::create([
                     'product_id' => $product->id,
